@@ -7,7 +7,7 @@ import re
 
 
 class OverviewSpider(Spider):
-	name = 'pyleap'
+	name = 'pyleaper'
 	allowed_domains = ['leapcard.ie']
 	start_urls = ['https://www.leapcard.ie/en/Login.aspx']
 
@@ -93,7 +93,7 @@ def get_card_overview(username: str, password: str):
 
 	process = CrawlerProcess(
 		settings = {
-			'BOT_NAME': 'pyleap',
+			'BOT_NAME': 'pyleaper',
 			'ROBOTSTXT_OBEY': True,
 			'DOWNLOADER_MIDDLEWARES': {
 				'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,

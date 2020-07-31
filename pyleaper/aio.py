@@ -6,8 +6,8 @@ from scrapy.signalmanager import dispatcher
 import re
 
 
-class HistorySpider(Spider):
-	name = 'pyleap'
+class AIOSpider(Spider):
+	name = 'pyleaper'
 	allowed_domains = ['leapcard.ie']
 	start_urls = ['https://www.leapcard.ie/en/Login.aspx']
 
@@ -60,6 +60,28 @@ class HistorySpider(Spider):
 		}, callback=self.parse_card_overview)
 
 	def parse_card_overview(self, response):
+		card_overview_element = response.xpath('//*[@id="ContentPlaceHolder1_TabContainer2_MyCardsTabPanel_ContentPlaceHolder1_ctrlCardOverViewBODetails_CardDetails"]')
+		card = {}
+
+		for element in card_overview_element.css('.row'):
+			element_key = element.xpath('.//div[1]/label/text()').get()
+			element_value = element.xpath('.//div[2]/text()').get()
+
+			if element_key:
+				element_key = re.sub(r"[^\w\s]", '', element_key).lower().strip() # strip to numbers and lowercase letters
+				element_key = re.sub(r"\s+", '_', element_key) # replace remaining spaces with underscores
+
+			if element_value:
+				element_value = element_value.strip()
+
+			if element_key == 'travel_credit_balance':
+				element_value = element.xpath('.//div[2]/div[@class="float-left"]/text()').get()
+
+			if element_key and element_value:
+				card[element_key] = element_value
+
+		yield { 'overview': card }
+		
 		travel_credit_history_url = response.xpath('//a[@id="ContentPlaceHolder1_TabContainer2_MyCardsTabPanel_Link_ViewJourneyHistory"]/@href').get()
 		yield Request(response.urljoin(travel_credit_history_url), callback=self.parse_travel_credit_history)
 
@@ -80,7 +102,6 @@ class HistorySpider(Spider):
 
 			if event:
 				travel_credit_history_events.append(event)
-				yield event
 
 		travel_credit_history_table_pagination = response.xpath('//tr[@class="grid-pager"]')
 		current_page_number = int(travel_credit_history_table_pagination.xpath('.//span/text()').get())
@@ -134,18 +155,20 @@ class HistorySpider(Spider):
 					ctl00_ctl00_ContentPlaceHolder1_TabContainer2_MyCardsTabPanel_ddlMyCardsList_key: ctl00_ctl00_ContentPlaceHolder1_TabContainer2_MyCardsTabPanel_ddlMyCardsList_value
 				}, callback=self.parse_travel_credit_history)
 
+		yield { 'events_page_' + str(current_page_number): travel_credit_history_events }
 
-def get_card_history(username: str, password: str):
-	data = []
+
+def get_card_overview_and_history(username: str, password: str):
+	raw_data = {}
 
 	def crawler_results(signal, sender, item, response, spider):
-		data.append(item)
+		raw_data.update(item)
 
 	dispatcher.connect(crawler_results, signal=signals.item_scraped)
 
 	process = CrawlerProcess(
 		settings = {
-			'BOT_NAME': 'pyleap',
+			'BOT_NAME': 'pyleaper',
 			'ROBOTSTXT_OBEY': True,
 			'DOWNLOADER_MIDDLEWARES': {
 				'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
@@ -155,7 +178,15 @@ def get_card_history(username: str, password: str):
 		}
 	)
 
-	process.crawl(HistorySpider, username=username, password=password)
+	process.crawl(AIOSpider, username=username, password=password)
 	process.start()
-	
-	return data
+
+	formatted_data = {}
+	formatted_data['overview'] = raw_data['overview']
+	formatted_data['events'] = []
+
+	num_of_event_pages = len(raw_data) - 1
+	for index, page in enumerate(range(num_of_event_pages), start=1):
+		formatted_data['events'].extend(raw_data['events_page_' + str(index)])
+
+	return formatted_data

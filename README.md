@@ -1,6 +1,6 @@
-# pyleap
+# pyleaper
 
-An unoffical Python API for accessing your [Leap Card](https://www.leapcard.ie) balance, overview, and travel credit history. Underneath the hood, pyleap uses [Scrapy](https://scrapy.org) to retrieve its data and therefore brings you an additional suite of options to utilise further if necessary.
+An unoffical Python API for accessing your [Leap Card](https://www.leapcard.ie) balance, overview, and travel credit history. Underneath the hood, pyleaper uses [Scrapy](https://scrapy.org) to retrieve its data and therefore brings you an additional suite of options to utilise further if necessary.
 
 ## Requirements
 
@@ -11,7 +11,7 @@ An unoffical Python API for accessing your [Leap Card](https://www.leapcard.ie) 
 Simply:
 
 ```python
-pip install pyleap
+pip install pyleaper
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ Retrieves a card's overview information such as the current balance and more.
 #### Code
 
 ```python
-from pyleap.overview import get_card_overview
+from pyleaper.overview import get_card_overview
 
 overview = get_card_overview(username='', password='')
 
@@ -57,7 +57,7 @@ Retrieves a card's travel credit history as far as it goes back.
 #### Code
 
 ```python
-from pyleap.history import get_card_history
+from pyleaper.history import get_card_history
 
 history = get_card_history(username='', password='')
 
@@ -89,7 +89,7 @@ Retrieves both the overview and history of a card all in one.
 #### Code
 
 ```python
-from pyleap.aio import get_card_overview_and_history
+from pyleaper.aio import get_card_overview_and_history
 
 both = get_card_overview_and_history(username='', password='')
 
