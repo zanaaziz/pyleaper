@@ -1,6 +1,6 @@
 # pyleap
 
-An unoffical Python API for accessing your [Leap Card](https://www.leapcard.ie) balance, overview, and full travel credit history. Underneath the hood, pyleap uses [Scrapy](https://scrapy.org) to retrieve its data and therefore brings you an additional suite of options to utilise further if necessary.
+An unoffical Python API for accessing your [Leap Card](https://www.leapcard.ie) balance, overview, and travel credit history. Underneath the hood, pyleap uses [Scrapy](https://scrapy.org) to retrieve its data and therefore brings you an additional suite of options to utilise further if necessary.
 
 ## Requirements
 
