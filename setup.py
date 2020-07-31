@@ -19,7 +19,7 @@ setuptools.setup(
 		"scrapy-user-agents>=0.1.1"
 	],
 	classifiers=[
-		"Programming Language :: Python :: 3.5.2",
+		"Programming Language :: Python :: 3.5",
 		"License :: OSI Approved :: MIT License",
 		"Operating System :: OS Independent",
 	],
