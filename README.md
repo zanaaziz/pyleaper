@@ -36,15 +36,15 @@ print(overview)
 
 ```python
 {
-	'auto_topup': '...',
-	'card_expiry_date': '...',
-	'card_issue_date': '...',
-	'card_label': '...',
-	'card_number': '...',
-	'card_status': '...',
-	'card_type': '...',
-	'travel_credit_balance': '...',
-	'travel_credit_status': '...'
+  'auto_topup': '...',
+  'card_expiry_date': '...',
+  'card_issue_date': '...',
+  'card_label': '...',
+  'card_number': '...',
+  'card_status': '...',
+  'card_type': '...',
+  'travel_credit_balance': '...',
+  'travel_credit_status': '...'
 }
 ```
 
@@ -68,15 +68,15 @@ print(history)
 
 ```python
 [
-	{
-		'amount': '...',
-		'balance': '...',
-		'date': '...',
-		'source': '...',
-		'time': '...',
-		'transaction_type': '...'
-	},
-	...
+  {
+    'amount': '...',
+    'balance': '...',
+    'date': '...',
+    'source': '...',
+    'time': '...',
+    'transaction_type': '...'
+  },
+  ...
 ]
 ```
 
@@ -100,27 +100,27 @@ print(both)
 
 ```python
 {
-	'overview': {
-		'auto_topup': '...',
-		'card_expiry_date': '...',
-		'card_issue_date': '...',
-		'card_label': '...',
-		'card_number': '...',
-		'card_status': '...',
-		'card_type': '...',
-		'travel_credit_balance': '...',
-		'travel_credit_status': '...'
-	},
-	'events': [
-		{
-			'amount': '...',
-			'balance': '...',
-			'date': '...',
-			'source': '...',
-			'time': '...',
-			'transaction_type': '...'
-		},
-		...
-	]
+  'overview': {
+    'auto_topup': '...',
+    'card_expiry_date': '...',
+    'card_issue_date': '...',
+    'card_label': '...',
+    'card_number': '...',
+    'card_status': '...',
+    'card_type': '...',
+    'travel_credit_balance': '...',
+    'travel_credit_status': '...'
+  },
+  'events': [
+    {
+      'amount': '...',
+      'balance': '...',
+      'date': '...',
+      'source': '...',
+      'time': '...',
+      'transaction_type': '...'
+    },
+    ...
+  ]
 }
 ```
