@@ -12,9 +12,14 @@ setuptools.setup(
 	long_description=long_description,
 	long_description_content_type="text/markdown",
 	url="https://github.com/zanadaniel/pyleaper",
+	keywords="leap card leapcard api ireland"
 	packages=setuptools.find_packages(),
+	install_requires=[
+		"Scrapy>=2.2.1",
+		"scrapy-user-agents>=0.1.1"
+	],
 	classifiers=[
-		"Programming Language :: Python :: 3.5",
+		"Programming Language :: Python :: 3.5.2",
 		"License :: OSI Approved :: MIT License",
 		"Operating System :: OS Independent",
 	],
