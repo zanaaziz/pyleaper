@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
 	name="pyleaper",
-	version="1.0.0",
+	version="1.0.1",
 	author="Zana Daniel",
 	author_email="contact@zanadaniel.com",
 	description="A Python API for accessing your Leap Card balance, overview, and travel credit history.",
