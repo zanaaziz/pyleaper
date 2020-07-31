@@ -1,6 +1,6 @@
 # pyleaper
 
-[![PyPI](https://img.shields.io/badge/pipy-v1.0.1-green)](https://pypi.org/project/pyleaper/)
+[![PyPI](https://img.shields.io/pypi/v/pyleaper?color=green)](https://pypi.org/project/pyleaper/)
 
 An unoffical Python API for accessing your [Leap Card](https://www.leapcard.ie) balance, overview, and travel credit history. Underneath the hood, pyleaper uses [Scrapy](https://scrapy.org) to retrieve its data and therefore brings you an additional suite of options to utilise further if necessary.
 
