@@ -5,13 +5,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
 	name="pyleaper",
-	version="1.0.1",
-	author="Zana Daniel",
-	author_email="contact@zanadaniel.com",
+	version="1.0.2",
+	author="Zana Aziz",
+	author_email="zanaaziz@pm.me",
 	description="A Python API for accessing your Leap Card balance, overview, and travel credit history.",
 	long_description=long_description,
 	long_description_content_type="text/markdown",
-	url="https://github.com/zanadaniel/pyleaper",
+	url="https://github.com/zanaaziz/pyleaper",
 	keywords="leap card leapcard api ireland",
 	packages=setuptools.find_packages(),
 	install_requires=[
