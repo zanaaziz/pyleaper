@@ -7,7 +7,7 @@ setuptools.setup(
 	name="pyleaper",
 	version="1.0.2",
 	author="Zana Aziz",
-	author_email="zanaaziz@pm.me",
+	author_email="mail@zanaaziz.com",
 	description="A Python API for accessing your Leap Card balance, overview, and travel credit history.",
 	long_description=long_description,
 	long_description_content_type="text/markdown",
