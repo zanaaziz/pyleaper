@@ -2,7 +2,7 @@
 
 [![PyPI](https://img.shields.io/pypi/v/pyleapo?color=green)](https://pypi.org/project/pyleapo/)
 
-An unoffical Python API for accessing your [Leap Card](https://www.leapcard.ie) balance, overview, and travel credit history. Underneath the hood, pyleapo uses [Scrapy](https://scrapy.org) to retrieve its data and therefore brings you an additional suite of options to utilise further if necessary.
+An unofficial Python API for accessing your [Leap Card](https://www.leapcard.ie) balance, overview, and travel credit history. Underneath the hood, pyleapo uses [Scrapy](https://scrapy.org) to retrieve its data and therefore brings you an additional suite of options to utilise further if necessary.
 
 ## Requirements
 
